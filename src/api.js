@@ -45,7 +45,7 @@ module.exports = baseUrl => {
 			}
 
 			const res = await client.request({
-				url: name + '/' + url,
+				url: url,
 				method,
 				data
 			});
