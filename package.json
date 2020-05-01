@@ -1,0 +1,12 @@
+{
+  "name": "@koderlife/klient",
+  "version": "0.0.0",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "dotenv": "^8.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^13.13.2"
+  }
+}
