@@ -1,11 +1,15 @@
 const axios = require('axios');
 
-module.exports = function(key) {
-	const client = axios.create({
-		baseURL: process.env.BASE_URL,
-		timeout: 5000
-	});
+const environments = {
+	development: 'http://localhost:3000'
+}
 
+const client = axios.create({
+	baseURL: environments[process.env.NODE_ENV],
+	timeout: 5000
+});
+
+module.exports.key = function(key) {
 	client.interceptors.request.use(
 		config => {
 			config.headers['Authorization'] = key;
@@ -13,8 +17,8 @@ module.exports = function(key) {
 			return config;
 		},
 		error => {
-			console.log(error) // for debug
-			return Promise.reject(error)
+			console.log(error);
+			return Promise.reject(error);
 		}
 	);
 
