@@ -13,7 +13,7 @@ module.exports = class {
 		return this.request('post', url, data);
 	}
 
-	async request(method, url = '', data = {}) {
+	async request(method, url = '', data) {
 		if (!data && typeof url === 'object') {
 			url = '';
 			data = url;
@@ -26,11 +26,5 @@ module.exports = class {
 		});
 
 		return res.data;
-	}
-
-	async save(data) {
-		return this.post('', {
-			body: data
-		});
 	}
 }
