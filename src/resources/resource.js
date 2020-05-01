@@ -6,7 +6,7 @@ module.exports = class {
 	}
 
 	async get(url, data) {
-		return this.request('get', url, data);
+		return await this.request('get', url, data);
 	}
 
 	async post(url, data) {
@@ -19,11 +19,13 @@ module.exports = class {
 			data = url;
 		}
 
-		return klient.request({
+		const res = await klient.request({
 			url: this.name + '/' + url,
 			method,
 			data
 		});
+
+		return res.data;
 	}
 
 	async save(data) {
