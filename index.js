@@ -12,6 +12,8 @@ module.exports.addKoderLifeApi = (name = 'kl') => {
 	}
 
 	this.add(name, urls[process.env.NODE_ENV || 'development']);
+
+	return apis[name];
 }
 
 module.exports.add = (name, baseUrl) => {
