@@ -13,7 +13,7 @@ module.exports = class {
 		return this.request('post', url, data);
 	}
 
-	async request(method, url, data) {
+	async request(method, url = '', data) {
 		if (!data && typeof url === 'object') {
 			url = '';
 			data = url;
