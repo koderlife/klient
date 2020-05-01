@@ -20,8 +20,8 @@ module.exports = class {
 		}
 
 		return klient.request({
+			url: this.name + '/' + url,
 			method,
-			url,
 			data
 		});
 	}
