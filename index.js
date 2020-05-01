@@ -2,6 +2,10 @@ const api = require('./api');
 
 const apis = {}
 
+module.exports = name => {
+	return apis[name];
+}
+
 module.exports.addKoderLifeApi = (name = 'kl') => {
 	const urls = {
 		development: 'http://localhost:3000'
@@ -12,8 +16,4 @@ module.exports.addKoderLifeApi = (name = 'kl') => {
 
 module.exports.add = (name, baseUrl) => {
 	apis[name] = api(baseUrl);
-}
-
-module.exports.api = name => {
-	return apis[name];
 }
