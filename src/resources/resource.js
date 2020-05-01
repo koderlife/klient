@@ -15,8 +15,8 @@ module.exports = class {
 
 	async request(method, url = '', data) {
 		if (!data && typeof url === 'object') {
-			url = '';
 			data = url;
+			url = '';
 		}
 
 		const res = await klient.request({
