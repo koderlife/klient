@@ -25,4 +25,10 @@ module.exports = class {
 			data
 		});
 	}
+
+	async save(data) {
+		return this.post('', {
+			body: data
+		});
+	}
 }
