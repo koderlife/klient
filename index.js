@@ -1,8 +1,19 @@
-const klient = require('./src/klient');
-const resource = require('./src/resources');
+const api = require('./api');
 
-module.exports = resource;
+const apis = {}
 
-module.exports.setApiKey = key => {
-	klient.key(key);
+module.exports.addKoderLifeApi = (name = 'kl') => {
+	const urls = {
+		development: 'http://localhost:3000'
+	}
+
+	this.add(name, urls[process.env.NODE_ENV || 'development']);
+}
+
+module.exports.add = (name, baseUrl) => {
+	apis[name] = api(baseUrl);
+}
+
+module.exports.api = name => {
+	return apis[name];
 }
