@@ -9,11 +9,7 @@ module.exports = baseUrl => {
 
 	return {
 		setAuthKey(key, header = 'Authorization') {
-			const headers = {}
-
-			headers[header] = key;
-
-			this.setHeaders(headers)
+			this.setHeaders({[header]: key})
 		},
 
 		setHeaders(headers) {
