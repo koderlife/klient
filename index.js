@@ -6,7 +6,7 @@ module.exports = name => {
 	return apis[name];
 }
 
-module.exports.addKoderLifeApi = (name = 'kl') => {
+module.exports.addKoderLifeApi = function(name = 'kl') {
 	const urls = {
 		development: 'http://localhost:3000'
 	}
@@ -16,6 +16,6 @@ module.exports.addKoderLifeApi = (name = 'kl') => {
 	return apis[name];
 }
 
-module.exports.add = (name, baseUrl) => {
+module.exports.add = function(name, baseUrl) {
 	apis[name] = api(baseUrl);
 }
