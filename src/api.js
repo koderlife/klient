@@ -1,10 +1,9 @@
 const axios = require('axios');
 
-module.exports = baseUrl => {
-	const resources = {}
+module.exports = (baseUrl, timeout = 5000) => {
 	const client = axios.create({
 		baseURL: baseUrl,
-		timeout: 5000
+		timeout: timeout
 	});
 
 	return {
