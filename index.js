@@ -18,4 +18,6 @@ module.exports.addKoderLifeApi = function(name = 'kl') {
 
 module.exports.add = function(name, baseUrl, timeout) {
 	apis[name] = api(baseUrl, timeout);
+
+	return apis[name];
 }
