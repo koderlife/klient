@@ -11,8 +11,8 @@ module.exports = (baseUrl, timeout = 5000) => {
 			this.setHeaders({[header]: key})
 		},
 
-		intercept(cb) {
-			client.interceptors.request.use(cb);
+		intercept(cb, error) {
+			client.interceptors.request.use(cb, error);
 		},
 
 		setHeaders(headers) {
