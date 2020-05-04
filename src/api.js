@@ -11,18 +11,24 @@ module.exports = (baseUrl, timeout = 5000) => {
 			this.setHeaders({[header]: key})
 		},
 
-		setHeaders(headers) {
-			client.interceptors.request.use(
-				config => {
-					Object.assign(config.headers, headers);
+		intercept(cb) {
+			client.interceptors.request.use(cb);
+		},
 
-					return config;
-				},
-				error => {
-					console.log(error);
-					return Promise.reject(error);
-				}
-			);
+		setHeaders(headers) {
+			this.intercept(config => {
+				Object.assign(config.headers, headers);
+
+				return config;
+			});
+		},
+
+		setParams(params) {
+			this.intercept(config => {
+				Object.assign(config.data, params);
+
+				return config;
+			});
 		},
 
 		async get(url, data) {
